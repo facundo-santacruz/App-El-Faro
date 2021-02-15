@@ -12,7 +12,6 @@ const LoadingScreen = ({navigation}) => {
     const checkIfLoggedIn = () => {
         firebase.auth().onAuthStateChanged((user) => {
             if(user){
-                console.log(user.providerData[0])
                 navigation.navigate("Dashboard", {user: user.providerData[0]})
             }else{
                 navigation.navigate("Login", {user: "facundo"})

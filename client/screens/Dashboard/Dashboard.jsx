@@ -1,10 +1,15 @@
 import React from 'react'
 import { View, Text, Button } from 'react-native'
-import firebase from "firebase";
+import firebase from "../../config";
 
-const Dashboard = ({navigation, route}) => {
+const Dashboard =  ({navigation, route}) => {
+    //  const db = firebase.firestore();
+    //  db.collection('users').get()
+    // .then(doc => console.log(doc))
+    // .catch(err => console.log(err))
 
-    console.log(route.params)
+    const img =firebase.storage()
+    console.log(img.ref('menu empanada.jpg'))
     const logout = () => {
         firebase.auth().signOut()
         navigation.navigate("Dashboard")

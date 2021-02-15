@@ -5,6 +5,7 @@ import firebase from 'firebase'
 const LoginScreen = ({navigation, route}) => {
 
     console.log(route)
+    var db = firebase.firestore();
 
     const loginGoogle = async () => {
         try {
@@ -18,6 +19,15 @@ const LoginScreen = ({navigation, route}) => {
             const user = result.user;
             console.log(user);
             console.log(result);
+            // db.collection("users").add({
+            //     email: user.email
+            // })
+            // .then(function(docRef) {
+            //     console.log("Document written with ID: ", docRef.id);
+            // })
+            // .catch(function(error) {
+            //     console.error("Error adding document: ", error);
+            // });
             navigation.navigate("Dashboard", user)
             });
         } catch (error) {
